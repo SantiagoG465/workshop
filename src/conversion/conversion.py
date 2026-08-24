@@ -7,7 +7,7 @@ class Conversion:
     
     def metros_a_pies(self, metros):
         """
-        Convierte distancia de metros a pies.
+
         
         Args:
             metros (float): Distancia en metros
