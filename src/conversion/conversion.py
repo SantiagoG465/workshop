@@ -1,39 +1,9 @@
 class Conversion:
     def celsius_a_fahrenheit(self, celsius):
-        """
-        Convierte temperatura de Celsius a Fahrenheit.
+       return (celsius * 9 / 5) + 32
         
-        Args:
-            celsius (float): Temperatura en grados Celsius
-            
-        Returns:
-            float: Temperatura en grados Fahrenheit
-            
-        Fórmula: F = (C × 9/5) + 32
-        
-        Ejemplo:
-            celsius_a_fahrenheit(0) -> 32.0
-            celsius_a_fahrenheit(100) -> 212.0
-        """
-        pass
-    
     def fahrenheit_a_celsius(self, fahrenheit):
-        """
-        Convierte temperatura de Fahrenheit a Celsius.
-        
-        Args:
-            fahrenheit (float): Temperatura en grados Fahrenheit
-            
-        Returns:
-            float: Temperatura en grados Celsius
-            
-        Fórmula: C = (F - 32) × 5/9
-        
-        Ejemplo:
-            fahrenheit_a_celsius(32) -> 0.0
-            fahrenheit_a_celsius(212) -> 100.0
-        """
-        pass
+        return (fahrenheit - 32) * 5 / 9
     
     def metros_a_pies(self, metros):
         """
