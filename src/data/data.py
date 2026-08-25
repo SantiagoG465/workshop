@@ -13,34 +13,20 @@ class Data:
         return resultado
     
     def buscar_elemento(self, lista, elemento):
-        """
-        Busca un elemento en una lista y devuelve su índice (o -1 si no existe).
-        Implementación manual sin usar index().
         
-        Args:
-            lista (list): Lista donde buscar
-            elemento: Elemento a buscar
-            
-        Returns:
-            int: Índice del elemento o -1 si no se encuentra
-        """
         for indice, valor in enumerate(lista):
             if valor == elemento:
                 return indice
         return -1
     
     def eliminar_duplicados(self, lista):
-        """
-        Elimina elementos duplicados de una lista sin usar set().
-        Mantiene el orden original de aparición.
-        
-        Args:
-            lista (list): Lista con posibles duplicados
-            
-        Returns:
-            list: Lista sin elementos duplicados
-        """
-        pass
+        resultado = []
+
+        for elemento in lista:
+            if elemento not in resultado:
+                resultado.append(elemento)
+
+        return resultado
     
     def merge_ordenado(self, lista1, lista2):
         """
