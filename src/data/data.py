@@ -24,7 +24,10 @@ class Data:
         Returns:
             int: Índice del elemento o -1 si no se encuentra
         """
-        pass
+        for indice, valor in enumerate(lista):
+            if valor == elemento:
+                return indice
+        return -1
     
     def eliminar_duplicados(self, lista):
         """
