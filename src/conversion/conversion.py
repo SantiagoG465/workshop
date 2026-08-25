@@ -15,20 +15,7 @@ class Conversion:
         return bin(decimal)[2:]
     
     def binario_a_decimal(self, binario):
-        """
-        Convierte un número binario a decimal.
-        
-        Args:
-            binario (str): Representación binaria como string
-            
-        Returns:
-            int: Número decimal
-            
-        Ejemplo:
-            binario_a_decimal("1010") -> 10
-            binario_a_decimal("11111111") -> 255
-        """
-        pass
+         return int(binario, 2)
     
     def decimal_a_romano(self, numero):
         """
