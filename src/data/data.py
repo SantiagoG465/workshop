@@ -51,16 +51,7 @@ class Data:
         return resultado
     
     def rotar_lista(self, lista, k):
-        """
-        Rota los elementos de una lista k posiciones a la derecha.
-        
-        Args:
-            lista (list): Lista a rotar
-            k (int): Número de posiciones a rotar
-            
-        Returns:
-            list: Lista rotada
-        """
+       
         if not lista:
             return lista
         
@@ -68,16 +59,8 @@ class Data:
         return lista[-k:] + lista[:-k]
     
     def encuentra_numero_faltante(self, lista):
-        """
-        Encuentra el número faltante en una lista de enteros del 1 al n.
-        
-        Args:
-            lista (list): Lista de enteros del 1 al n con un número faltante
-            
-        Returns:
-            int: El número que falta en la secuencia
-        """
-        pass
+        n = len(lista) + 1
+        return (n * (n + 1)) // 2 - sum(lista)
     
     def es_subconjunto(self, conjunto1, conjunto2):
         """
