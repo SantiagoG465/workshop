@@ -23,7 +23,12 @@ class Data:
         resultado = []
 
         for elemento in lista:
-            if elemento not in resultado:
+            existe = False
+            for guardado in resultado:
+                if elemento == guardado and type(elemento) is type(guardado):
+                    existe = True
+                    break
+            if not existe:
                 resultado.append(elemento)
 
         return resultado
