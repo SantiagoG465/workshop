@@ -87,13 +87,6 @@ class Data:
         }
     
     def matriz_transpuesta(self, matriz):
-        """
-        Calcula la transpuesta de una matriz.
-        
-        Args:
-            matriz (list): Lista de listas que representa una matriz
-            
-        Returns:
-            list: Matriz transpuesta
-        """
-        pass
+        if not matriz or not matriz[0]:
+            return []
+        return [[matriz[j][i] for j in range(len(matriz))] for i in range(len(matriz[0]))]
