@@ -78,13 +78,13 @@ class Data:
         }
     
     def implementar_cola(self):
-        """
-        Implementa una estructura de datos tipo cola (queue) usando listas.
-        
-        Returns:
-            dict: Diccionario con métodos enqueue, dequeue, peek y is_empty
-        """
-        pass
+        cola = []
+        return {
+            "enqueue": lambda x: cola.append(x),
+            "dequeue": lambda: cola.pop(0) if cola else None,
+            "peek": lambda: cola[0] if cola else None,
+            "is_empty": lambda: len(cola) == 0
+        }
     
     def matriz_transpuesta(self, matriz):
         """
