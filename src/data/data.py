@@ -24,10 +24,7 @@ class Data:
         Returns:
             int: Índice del elemento o -1 si no se encuentra
         """
-        for indice, valor in enumerate(lista):
-            if valor == elemento:
-                return indice
-        return -1
+        pass
     
     def eliminar_duplicados(self, lista):
         """
@@ -40,12 +37,7 @@ class Data:
         Returns:
             list: Lista sin elementos duplicados
         """
-        resultado = []
-        for elemento in lista:
-            if not any(elemento == guardado and type(elemento) is type(guardado)
-                       for guardado in resultado):
-                resultado.append(elemento)
-        return resultado
+        pass
     
     def merge_ordenado(self, lista1, lista2):
         """
@@ -58,16 +50,7 @@ class Data:
         Returns:
             list: Lista combinada y ordenada
         """
-        resultado = []
-        indice1 = indice2 = 0
-        while indice1 < len(lista1) and indice2 < len(lista2):
-            if lista1[indice1] <= lista2[indice2]:
-                resultado.append(lista1[indice1])
-                indice1 += 1
-            else:
-                resultado.append(lista2[indice2])
-                indice2 += 1
-        return resultado + lista1[indice1:] + lista2[indice2:]
+        pass
     
     def rotar_lista(self, lista, k):
         """
@@ -80,10 +63,7 @@ class Data:
         Returns:
             list: Lista rotada
         """
-        if not lista:
-            return []
-        k %= len(lista)
-        return lista[-k:] + lista[:-k] if k else lista[:]
+        pass
     
     def encuentra_numero_faltante(self, lista):
         """
@@ -95,8 +75,7 @@ class Data:
         Returns:
             int: El número que falta en la secuencia
         """
-        n = len(lista) + 1
-        return n * (n + 1) // 2 - sum(lista)
+        pass
     
     def es_subconjunto(self, conjunto1, conjunto2):
         """
@@ -109,10 +88,7 @@ class Data:
         Returns:
             bool: True si conjunto1 es subconjunto de conjunto2, False en caso contrario
         """
-        for elemento in conjunto1:
-            if elemento not in conjunto2:
-                return False
-        return True
+        pass
     
     def implementar_pila(self):
         """
@@ -121,21 +97,7 @@ class Data:
         Returns:
             dict: Diccionario con métodos push, pop, peek y is_empty
         """
-        elementos = []
-
-        def push(elemento):
-            elementos.append(elemento)
-
-        def pop():
-            return elementos.pop() if elementos else None
-
-        def peek():
-            return elementos[-1] if elementos else None
-
-        def is_empty():
-            return not elementos
-
-        return {'push': push, 'pop': pop, 'peek': peek, 'is_empty': is_empty}
+        pass
     
     def implementar_cola(self):
         """
@@ -156,7 +118,4 @@ class Data:
         Returns:
             list: Matriz transpuesta
         """
-        resultado = []
-        for indice in range(len(lista) - 1, -1, -1):
-            resultado.append(lista[indice])
-        return resultado
+        pass
