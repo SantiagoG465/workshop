@@ -42,21 +42,11 @@ class Conversion:
         return resultado
     
     def texto_a_morse(self, texto):
-        """
-        Convierte texto a código Morse.
-        
-        Args:
-            texto (str): Texto a convertir (letras y números)
-            
-        Returns:
-            str: Código Morse separado por espacios
-            
-        Ejemplo:
-            texto_a_morse("SOS") -> "... --- ..."
-            texto_a_morse("HELLO") -> ".... . .-.. .-.. ---"
-        """
-        pass
-    
+        texto = texto.upper()
+
+        return ' '.join(self.MORSE_CODE[letra] for letra in texto if letra in self.MORSE_CODE)
+
+
     def morse_a_texto(self, morse):
         """
         Convierte código Morse a texto.
