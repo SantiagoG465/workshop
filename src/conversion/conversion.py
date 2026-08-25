@@ -1,4 +1,16 @@
 class Conversion:
+    MORSE_CODE = {
+        'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.',
+        'F': '..-.', 'G': '--.', 'H': '....', 'I': '..', 'J': '.---',
+        'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---',
+        'P': '.--.', 'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-',
+        'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-', 'Y': '-.--',
+        'Z': '--..',
+        '0': '-----', '1': '.----', '2': '..---', '3': '...--',
+        '4': '....-', '5': '.....', '6': '-....', '7': '--...',
+        '8': '---..', '9': '----.',
+    }
+
     def celsius_a_fahrenheit(self, celsius):
        return (celsius * 9 / 5) + 32
         
@@ -46,19 +58,6 @@ class Conversion:
 
         return ' '.join(self.MORSE_CODE[letra] for letra in texto if letra in self.MORSE_CODE)
 
-
     def morse_a_texto(self, morse):
-        """
-        Convierte código Morse a texto.
-        
-        Args:
-            morse (str): Código Morse separado por espacios
-            
-        Returns:
-            str: Texto decodificado
-            
-        Ejemplo:
-            morse_a_texto("... --- ...") -> "SOS"
-            morse_a_texto(".... . .-.. .-.. ---") -> "HELLO"
-        """
-        pass
+        morse_a_letra = {v: k for k, v in self.MORSE_CODE.items()}
+        return ''.join(morse_a_letra[codigo] for codigo in morse.split() if codigo in morse_a_letra)
