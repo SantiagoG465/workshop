@@ -5,16 +5,12 @@ class Data:
     """
     
     def invertir_lista(self, lista):
-        """
-        Invierte el orden de los elementos en una lista sin usar reversed() o lista[::-1].
-        
-        Args:
-            lista (list): Lista a invertir
-            
-        Returns:
-            list: Lista con los elementos en orden inverso
-        """
-        pass
+        resultado = []
+
+        for indice in range(len(lista) - 1, -1, -1):
+            resultado.append(lista[indice])
+
+        return resultado
     
     def buscar_elemento(self, lista, elemento):
         """
@@ -28,7 +24,10 @@ class Data:
         Returns:
             int: Índice del elemento o -1 si no se encuentra
         """
-        pass
+        for indice, valor in enumerate(lista):
+            if valor == elemento:
+                return indice
+        return -1
     
     def eliminar_duplicados(self, lista):
         """
@@ -41,7 +40,12 @@ class Data:
         Returns:
             list: Lista sin elementos duplicados
         """
-        pass
+        resultado = []
+        for elemento in lista:
+            if not any(elemento == guardado and type(elemento) is type(guardado)
+                       for guardado in resultado):
+                resultado.append(elemento)
+        return resultado
     
     def merge_ordenado(self, lista1, lista2):
         """
@@ -54,7 +58,16 @@ class Data:
         Returns:
             list: Lista combinada y ordenada
         """
-        pass
+        resultado = []
+        indice1 = indice2 = 0
+        while indice1 < len(lista1) and indice2 < len(lista2):
+            if lista1[indice1] <= lista2[indice2]:
+                resultado.append(lista1[indice1])
+                indice1 += 1
+            else:
+                resultado.append(lista2[indice2])
+                indice2 += 1
+        return resultado + lista1[indice1:] + lista2[indice2:]
     
     def rotar_lista(self, lista, k):
         """
@@ -67,7 +80,10 @@ class Data:
         Returns:
             list: Lista rotada
         """
-        pass
+        if not lista:
+            return []
+        k %= len(lista)
+        return lista[-k:] + lista[:-k] if k else lista[:]
     
     def encuentra_numero_faltante(self, lista):
         """
@@ -79,7 +95,8 @@ class Data:
         Returns:
             int: El número que falta en la secuencia
         """
-        pass
+        n = len(lista) + 1
+        return n * (n + 1) // 2 - sum(lista)
     
     def es_subconjunto(self, conjunto1, conjunto2):
         """
@@ -92,7 +109,10 @@ class Data:
         Returns:
             bool: True si conjunto1 es subconjunto de conjunto2, False en caso contrario
         """
-        pass
+        for elemento in conjunto1:
+            if elemento not in conjunto2:
+                return False
+        return True
     
     def implementar_pila(self):
         """
@@ -101,7 +121,21 @@ class Data:
         Returns:
             dict: Diccionario con métodos push, pop, peek y is_empty
         """
-        pass
+        elementos = []
+
+        def push(elemento):
+            elementos.append(elemento)
+
+        def pop():
+            return elementos.pop() if elementos else None
+
+        def peek():
+            return elementos[-1] if elementos else None
+
+        def is_empty():
+            return not elementos
+
+        return {'push': push, 'pop': pop, 'peek': peek, 'is_empty': is_empty}
     
     def implementar_cola(self):
         """
@@ -122,4 +156,7 @@ class Data:
         Returns:
             list: Matriz transpuesta
         """
-        pass
+        resultado = []
+        for indice in range(len(lista) - 1, -1, -1):
+            resultado.append(lista[indice])
+        return resultado
