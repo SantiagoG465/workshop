@@ -21,40 +21,34 @@ class Magic:
         return fib_list
     
     def es_primo(self, n):
-        """
-        Verifica si un número es primo.
-        
-        Args:
-            n (int): Número a verificar
-            
-        Returns:
-            bool: True si n es primo, False en caso contrario
-        """
-        pass
+        if n <= 1:
+            return False
+        if n == 2:
+            return True
+        if n % 2 == 0:
+            return False
+        for i in range(3, int(n ** 0.5) + 1, 2):
+            if n % i == 0:
+                return False
+        return True
     
     def generar_primos(self, n):
-        """
-        Genera una lista de números primos hasta n.
-        
-        Args:
-            n (int): Límite superior para generar primos
-            
-        Returns:
-            list: Lista de números primos hasta n
-        """
-        pass
+        if n < 2:
+            return []
+        primos = []
+        for num in range(2, n + 1):
+            if self.es_primo(num):
+                primos.append(num)
+        return primos
     
     def es_numero_perfecto(self, n):
-        """
-        Verifica si un número es perfecto (igual a la suma de sus divisores propios).
-        
-        Args:
-            n (int): Número a verificar
-            
-        Returns:
-            bool: True si n es un número perfecto, False en caso contrario
-        """
-        pass
+        if n <= 1:
+            return False
+        suma_divisores = 0
+        for i in range(1, n):
+            if n % i == 0:
+                suma_divisores += i
+        return suma_divisores == n
     
     def triangulo_pascal(self, filas):
         """
