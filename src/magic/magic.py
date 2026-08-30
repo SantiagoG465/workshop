@@ -1,7 +1,9 @@
 class Magic:
     
     def fibonacci(self, n):
-        if n <= 0:
+        if n < 0:
+            return None
+        if n == 0:
             return 0
         elif n == 1:
             return 1
@@ -51,16 +53,17 @@ class Magic:
         return suma_divisores == n
     
     def triangulo_pascal(self, filas):
-        """
-        Genera las primeras n filas del triángulo de Pascal.
-        
-        Args:
-            filas (int): Número de filas a generar
-            
-        Returns:
-            list: Lista de listas que representa el triángulo de Pascal
-        """
-        pass
+        if filas <= 0:
+            return []
+        resultado = []
+        for i in range(filas):
+            fila = [1]
+            if i > 0:
+                for j in range(1, i):
+                    fila.append(resultado[i-1][j-1] + resultado[i-1][j])
+                fila.append(1)
+            resultado.append(fila)
+        return resultado
     
     def factorial(self, n):
         """
