@@ -13,20 +13,22 @@ class Stats:
             return (sorted_nums[n // 2 - 1] + sorted_nums[n // 2]) / 2
     
     def moda(self, numeros):
-        """
-        Encuentra el valor que aparece con mayor frecuencia en la lista.
-        Si hay empate, retorna el primer valor encontrado.
-        
-        Args:
-            numeros (list): Lista de números
-            
-        Returns:
-            number: El valor más frecuente
-            
-        Ejemplo:
-            moda([1, 2, 2, 3, 3, 3]) -> 3
-        """
-        pass
+        if not numeros:
+            return 0
+
+        contador = {}
+        for valor in numeros:
+            contador[valor] = contador.get(valor, 0) + 1
+
+        valor_mas_frecuente = numeros[0]
+        max_frecuencia = 0
+
+        for valor in numeros:
+            if contador[valor] > max_frecuencia:
+                max_frecuencia = contador[valor]
+                valor_mas_frecuente = valor
+
+        return valor_mas_frecuente
     
     def desviacion_estandar(self, numeros):
         """
