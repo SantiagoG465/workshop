@@ -5,6 +5,11 @@ class Games:
         jugador1 = jugador1.lower().strip()
         jugador2 = jugador2.lower().strip()
         
+        opciones_validas = ["piedra", "papel", "tijera"]
+        
+        if jugador1 not in opciones_validas or jugador2 not in opciones_validas:
+            return "invalid"
+        
         if jugador1 == jugador2:
             return "empate"
         
@@ -14,8 +19,6 @@ class Games:
             return "jugador1" if jugador2 == "piedra" else "jugador2"
         elif jugador1 == "tijera":
             return "jugador1" if jugador2 == "papel" else "jugador2"
-        
-        raise ValueError("Opción inválida. Usa 'piedra', 'papel' o 'tijera'.")
     
     def adivinar_numero_pista(self, numero_secreto, intento):
         if intento == numero_secreto:
@@ -49,6 +52,10 @@ class Games:
         return [random.choice(colores_disponibles) for _ in range(longitud)]
     
     def validar_movimiento_torre_ajedrez(self, desde_fila, desde_col, hasta_fila, hasta_col, tablero):
+        if desde_fila < 0 or desde_fila > 7 or desde_col < 0 or desde_col > 7:
+            return False
+        if hasta_fila < 0 or hasta_fila > 7 or hasta_col < 0 or hasta_col > 7:
+            return False
         if desde_fila == hasta_fila and desde_col == hasta_col:
             return False
         
