@@ -1,3 +1,5 @@
+import random
+
 class Games:
     def piedra_papel_tijera(self, jugador1, jugador2):
         jugador1 = jugador1.lower().strip()
@@ -44,38 +46,26 @@ class Games:
         return "continua"
     
     def generar_combinacion_mastermind(self, longitud, colores_disponibles):
-        """
-        Genera una combinación aleatoria para el juego Mastermind.
-        
-        Args:
-            longitud (int): Número de posiciones en la combinación
-            colores_disponibles (list): Lista de colores disponibles
-            
-        Returns:
-            list: Combinación de colores de la longitud especificada
-            
-        Ejemplo:
-            generar_combinacion_mastermind(4, ["rojo", "azul", "verde"]) 
-            -> ["rojo", "azul", "rojo", "verde"]
-        """
-        pass
+        return [random.choice(colores_disponibles) for _ in range(longitud)]
     
     def validar_movimiento_torre_ajedrez(self, desde_fila, desde_col, hasta_fila, hasta_col, tablero):
-        """
-        Valida si un movimiento de torre en ajedrez es legal.
+        if desde_fila == hasta_fila and desde_col == hasta_col:
+            return False
         
-        Args:
-            desde_fila (int): Fila inicial (0-7)
-            desde_col (int): Columna inicial (0-7)
-            hasta_fila (int): Fila destino (0-7)
-            hasta_col (int): Columna destino (0-7)
-            tablero (list): Matriz 8x8 representando el tablero
-            
-        Returns:
-            bool: True si el movimiento es válido, False si no
-            
-        Reglas:
-            - La torre se mueve horizontal o verticalmente
-            - No puede saltar sobre otras piezas
-        """
-        pass
+        if desde_fila != hasta_fila and desde_col != hasta_col:
+            return False
+        
+        if desde_fila == hasta_fila:
+            inicio = min(desde_col, hasta_col) + 1
+            fin = max(desde_col, hasta_col)
+            for col in range(inicio, fin):
+                if tablero[desde_fila][col] != " ":
+                    return False
+        else:
+            inicio = min(desde_fila, hasta_fila) + 1
+            fin = max(desde_fila, hasta_fila)
+            for fila in range(inicio, fin):
+                if tablero[fila][desde_col] != " ":
+                    return False
+        
+        return True
