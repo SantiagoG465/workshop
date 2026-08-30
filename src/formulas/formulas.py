@@ -66,43 +66,22 @@ class Formulas:
         return capital * (1 + tasa / n) ** (n * tiempo)
 
     def discriminante(self, a, b, c):
-        """
-        Calcula el discriminante de una ecuación cuadrática ax^2 + bx + c = 0.
-
-        Args:
-            a (float): Coeficiente cuadrático
-            b (float): Coeficiente lineal
-            c (float): Término independiente
-
-        Returns:
-            float: Discriminante
-
-        Fórmula: D = b^2 - 4*a*c
-
-        Ejemplo:
-            discriminante(1, -3, 2) -> 1
-        """
-        pass
+        return b ** 2 - 4 * a * c
 
     def raices_cuadraticas(self, a, b, c):
-        """
-        Calcula las raíces reales de una ecuación cuadrática ax^2 + bx + c = 0
-        usando la fórmula general. Si el discriminante es negativo, lanza ValueError.
-
-        Args:
-            a (float): Coeficiente cuadrático (distinto de cero)
-            b (float): Coeficiente lineal
-            c (float): Término independiente
-
-        Returns:
-            tuple: (raiz1, raiz2) las dos raíces reales
-
-        Fórmula: x = (-b ± sqrt(b^2 - 4ac)) / (2a)
-
-        Ejemplo:
-            raices_cuadraticas(1, -3, 2) -> (2.0, 1.0)
-        """
-        pass
+        if a == 0:
+            raise ValueError("El coeficiente cuadrático no puede ser cero.")
+        
+        discriminante = b ** 2 - 4 * a * c
+        
+        if discriminante < 0:
+            raise ValueError("El discriminante es negativo, no hay raíces reales.")
+        
+        sqrt_discriminante = discriminante ** 0.5
+        raiz1 = (-b + sqrt_discriminante) / (2 * a)
+        raiz2 = (-b - sqrt_discriminante) / (2 * a)
+        
+        return (raiz1, raiz2)
 
     def imc(self, peso, altura):
         """
