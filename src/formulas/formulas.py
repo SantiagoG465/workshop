@@ -10,24 +10,8 @@ class Formulas:
         return distancia / tiempo
 
     def mruv_posicion(self, posicion_inicial, velocidad_inicial, aceleracion, tiempo):
-        """
-        Calcula la posición de un móvil con aceleración constante (MRUV).
-
-        Args:
-            posicion_inicial (float): Posición inicial (metros)
-            velocidad_inicial (float): Velocidad inicial (metros/segundo)
-            aceleracion (float): Aceleración constante (metros/segundo^2)
-            tiempo (float): Tiempo transcurrido (segundos)
-
-        Returns:
-            float: Posición final
-
-        Fórmula: x = x0 + v0*t + (1/2)*a*t^2
-
-        Ejemplo:
-            mruv_posicion(0, 2, 1, 3) -> 10.5
-        """
-        pass
+        if tiempo < 0:
+            raise ValueError("El tiempo no puede ser negativo.")
 
     def mruv_velocidad(self, velocidad_inicial, aceleracion, tiempo):
         """
