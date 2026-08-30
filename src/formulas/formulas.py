@@ -50,43 +50,20 @@ class Formulas:
          return voltaje / resistencia
 
     def interes_simple(self, capital, tasa, tiempo):
-        """
-        Calcula el interés generado por un capital a interés simple.
-
-        Args:
-            capital (float): Capital inicial
-            tasa (float): Tasa de interés anual (en decimal, ej. 0.05 para 5%)
-            tiempo (float): Tiempo en años
-
-        Returns:
-            float: Interés generado
-
-        Fórmula: I = C * r * t
-
-        Ejemplo:
-            interes_simple(1000, 0.05, 2) -> 100.0
-        """
-        pass
+        if capital < 0:
+            raise ValueError("El capital no puede ser negativo.")
+        if tiempo < 0:
+            raise ValueError("El tiempo no puede ser negativo.")
+        return capital * tasa * tiempo
 
     def interes_compuesto(self, capital, tasa, tiempo, n=1):
-        """
-        Calcula el monto final de un capital a interés compuesto.
-
-        Args:
-            capital (float): Capital inicial
-            tasa (float): Tasa de interés anual (en decimal, ej. 0.05 para 5%)
-            tiempo (float): Tiempo en años
-            n (int): Número de capitalizaciones por año, por defecto 1
-
-        Returns:
-            float: Monto final
-
-        Fórmula: M = C * (1 + r/n)^(n*t)
-
-        Ejemplo:
-            interes_compuesto(1000, 0.05, 2) -> 1102.5
-        """
-        pass
+        if capital < 0:
+            raise ValueError("El capital no puede ser negativo.")
+        if tiempo < 0:
+            raise ValueError("El tiempo no puede ser negativo.")
+        if n <= 0:
+            raise ValueError("El número de capitalizaciones debe ser mayor que cero.")
+        return capital * (1 + tasa / n) ** (n * tiempo)
 
     def discriminante(self, a, b, c):
         """
