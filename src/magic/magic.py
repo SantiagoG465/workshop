@@ -66,29 +66,19 @@ class Magic:
         return resultado
     
     def factorial(self, n):
-        """
-        Calcula el factorial de un número.
-        
-        Args:
-            n (int): Número para calcular su factorial
-            
-        Returns:
-            int: El factorial de n
-        """
-        pass
+        if n < 0:
+            return None
+        if n == 0 or n == 1:
+            return 1
+        resultado = 1
+        for i in range(2, n + 1):
+            resultado *= i
+        return resultado
     
     def mcd(self, a, b):
-        """
-        Calcula el máximo común divisor de dos números.
-        
-        Args:
-            a (int): Primer número
-            b (int): Segundo número
-            
-        Returns:
-            int: El máximo común divisor de a y b
-        """
-        pass
+        while b != 0:
+            a, b = b, a % b
+        return a
     
     def mcm(self, a, b):
         """
