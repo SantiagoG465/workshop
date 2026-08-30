@@ -22,61 +22,22 @@ class Formulas:
         return velocidad_inicial + aceleracion * tiempo
 
     def fuerza_newton(self, masa, aceleracion):
-        """
-        Calcula la fuerza según la segunda ley de Newton.
-
-        Args:
-            masa (float): Masa del objeto (kg)
-            aceleracion (float): Aceleración (m/s^2)
-
-        Returns:
-            float: Fuerza (Newtons)
-
-        Fórmula: F = m * a
-
-        Ejemplo:
-            fuerza_newton(10, 2) -> 20.0
-        """
+        
         if masa < 0:
             raise ValueError("La masa no puede ser negativa.")
         return masa * aceleracion
 
     def energia_cinetica(self, masa, velocidad):
-        """
-        Calcula la energía cinética de un objeto en movimiento.
-
-        Args:
-            masa (float): Masa del objeto (kg)
-            velocidad (float): Velocidad del objeto (m/s)
-
-        Returns:
-            float: Energía cinética (Joules)
-
-        Fórmula: Ec = (1/2) * m * v^2
-
-        Ejemplo:
-            energia_cinetica(2, 3) -> 9.0
-        """
-        pass
+        
+        if masa < 0:
+            raise ValueError("La masa no puede ser negativa.")
+        return 0.5 * masa * velocidad ** 2
 
     def energia_potencial(self, masa, altura, gravedad=9.8):
-        """
-        Calcula la energía potencial gravitatoria de un objeto.
-
-        Args:
-            masa (float): Masa del objeto (kg)
-            altura (float): Altura sobre el suelo (metros)
-            gravedad (float): Aceleración de la gravedad (m/s^2), por defecto 9.8
-
-        Returns:
-            float: Energía potencial (Joules)
-
-        Fórmula: Ep = m * g * h
-
-        Ejemplo:
-            energia_potencial(2, 5) -> 98.0
-        """
-        pass
+        
+        if masa < 0:
+            raise ValueError("La masa no puede ser negativa.")
+        return masa * gravedad * altura
 
     def ley_ohm_voltaje(self, corriente, resistencia):
         """
