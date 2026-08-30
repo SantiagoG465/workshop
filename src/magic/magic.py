@@ -1,32 +1,24 @@
 class Magic:
-    """
-    Clase con métodos para juegos matemáticos, secuencias especiales y algoritmos numéricos.
-    Incluye implementaciones de Fibonacci, números perfectos, triangulo de pascal etc.
-    """
     
     def fibonacci(self, n):
-        """
-        Calcula el n-ésimo número de la secuencia de Fibonacci.
-        
-        Args:
-            n (int): Posición en la secuencia (empezando desde 0)
-            
-        Returns:
-            int: El n-ésimo número de Fibonacci
-        """
-        pass
+        if n <= 0:
+            return 0
+        elif n == 1:
+            return 1
+        a, b = 0, 1
+        for _ in range(2, n + 1):
+            a, b = b, a + b
+        return b
     
     def secuencia_fibonacci(self, n):
-        """
-        Genera los primeros n números de la secuencia de Fibonacci.
-        
-        Args:
-            n (int): Cantidad de números a generar
-            
-        Returns:
-            list: Lista con los primeros n números de Fibonacci
-        """
-        pass
+        if n <= 0:
+            return []
+        elif n == 1:
+            return [0]
+        fib_list = [0, 1]
+        for _ in range(2, n):
+            fib_list.append(fib_list[-1] + fib_list[-2])
+        return fib_list
     
     def es_primo(self, n):
         """
