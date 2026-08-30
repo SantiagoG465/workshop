@@ -84,37 +84,13 @@ class Formulas:
         return (raiz1, raiz2)
 
     def imc(self, peso, altura):
-        """
-        Calcula el Índice de Masa Corporal (IMC).
-
-        Args:
-            peso (float): Peso en kilogramos
-            altura (float): Altura en metros
-
-        Returns:
-            float: Índice de Masa Corporal
-
-        Fórmula: IMC = peso / altura^2
-
-        Ejemplo:
-            imc(70, 1.75) -> 22.86
-        """
-        pass
+        if peso <= 0:
+            raise ValueError("El peso debe ser mayor que cero.")
+        if altura <= 0:
+            raise ValueError("La altura debe ser mayor que cero.")
+        return peso / altura ** 2
 
     def hipotenusa_pitagoras(self, cateto1, cateto2):
-        """
-        Calcula la longitud de la hipotenusa de un triángulo rectángulo.
-
-        Args:
-            cateto1 (float): Longitud del primer cateto
-            cateto2 (float): Longitud del segundo cateto
-
-        Returns:
-            float: Longitud de la hipotenusa
-
-        Fórmula: h = sqrt(cateto1^2 + cateto2^2)
-
-        Ejemplo:
-            hipotenusa_pitagoras(3, 4) -> 5.0
-        """
-        pass
+        if cateto1 < 0 or cateto2 < 0:
+            raise ValueError("Los catetos no pueden ser negativos.")
+        return (cateto1 ** 2 + cateto2 ** 2) ** 0.5
