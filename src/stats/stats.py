@@ -1,35 +1,16 @@
 class Stats:
     def promedio(self, numeros):
-        """
-        Calcula la media aritmética de una lista de números.
-        
-        Args:
-            numeros (list): Lista de números
-            
-        Returns:
-            float: La media aritmética de los números
-            
-        Ejemplo:
-            promedio([1, 2, 3, 4, 5]) -> 3.0
-        """
-        pass
+        return sum(numeros) / len(numeros) if numeros else 0
     
     def mediana(self, numeros):
-        """
-        Encuentra el valor mediano de una lista de números.
-        Para listas con número par de elementos, retorna el promedio de los dos valores centrales.
-        
-        Args:
-            numeros (list): Lista de números
-            
-        Returns:
-            float: El valor mediano
-            
-        Ejemplo:
-            mediana([1, 2, 3, 4, 5]) -> 3.0
-            mediana([1, 2, 3, 4]) -> 2.5
-        """
-        pass
+        if not numeros:
+            return 0
+        sorted_nums = sorted(numeros)
+        n = len(sorted_nums)
+        if n % 2 == 1:
+            return sorted_nums[n // 2]
+        else:
+            return (sorted_nums[n // 2 - 1] + sorted_nums[n // 2]) / 2
     
     def moda(self, numeros):
         """
