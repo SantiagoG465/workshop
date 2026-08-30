@@ -10,8 +10,10 @@ class Formulas:
         return distancia / tiempo
 
     def mruv_posicion(self, posicion_inicial, velocidad_inicial, aceleracion, tiempo):
-        if tiempo < 0:
-            raise ValueError("El tiempo no puede ser negativo.")
+            if tiempo < 0:
+
+                raise ValueError("El tiempo no puede ser negativo.")
+            return posicion_inicial + velocidad_inicial * tiempo + 0.5 * aceleracion * tiempo ** 2
 
     def mruv_velocidad(self, velocidad_inicial, aceleracion, tiempo):
         """
