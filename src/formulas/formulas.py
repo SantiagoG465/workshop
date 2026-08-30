@@ -40,40 +40,14 @@ class Formulas:
         return masa * gravedad * altura
 
     def ley_ohm_voltaje(self, corriente, resistencia):
-        """
-        Calcula el voltaje usando la ley de Ohm.
-
-        Args:
-            corriente (float): Corriente eléctrica (Amperios)
-            resistencia (float): Resistencia (Ohmios)
-
-        Returns:
-            float: Voltaje (Voltios)
-
-        Fórmula: V = I * R
-
-        Ejemplo:
-            ley_ohm_voltaje(2, 5) -> 10.0
-        """
-        pass
+        
+        return corriente * resistencia
 
     def ley_ohm_corriente(self, voltaje, resistencia):
-        """
-        Calcula la corriente usando la ley de Ohm.
+         if resistencia == 0:
+            raise ValueError("La resistencia no puede ser cero.")
 
-        Args:
-            voltaje (float): Voltaje (Voltios)
-            resistencia (float): Resistencia (Ohmios)
-
-        Returns:
-            float: Corriente (Amperios)
-
-        Fórmula: I = V / R
-
-        Ejemplo:
-            ley_ohm_corriente(10, 5) -> 2.0
-        """
-        pass
+         return voltaje / resistencia
 
     def interes_simple(self, capital, tasa, tiempo):
         """
