@@ -5,23 +5,9 @@ class Matrix:
     """
 
     def suma_matrices(self, A, B):
-        """
-        Suma dos matrices elemento a elemento.
-
-        Args:
-            A (list): Primera matriz (lista de listas)
-            B (list): Segunda matriz (lista de listas), debe tener las mismas dimensiones que A
-
-        Returns:
-            list: Matriz resultante de la suma
-
-        Raises:
-            ValueError: Si las matrices tienen dimensiones incompatibles
-
-        Ejemplo:
-            suma_matrices([[1, 2], [3, 4]], [[5, 6], [7, 8]]) -> [[6, 8], [10, 12]]
-        """
-        pass
+        if len(A) != len(B) or len(A[0]) != len(B[0]):
+            raise ValueError("Las matrices deben tener las mismas dimensiones")
+        return [[A[i][j] + B[i][j] for j in range(len(A[0]))] for i in range(len(A))]
 
     def resta_matrices(self, A, B):
         """
