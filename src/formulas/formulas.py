@@ -1,8 +1,4 @@
 class Formulas:
-    """
-    Clase con ejercicios de fórmulas de física, finanzas y álgebra.
-    """
-
     def velocidad_media(self, distancia, tiempo):
         if tiempo <= 0:
             raise ValueError("El tiempo debe ser mayor que 0 segundos.")
